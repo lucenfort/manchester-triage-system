@@ -1,0 +1,59 @@
+# Docker Compose — Sistema de Triagem Clínica (Protocolo de Manchester)
+# Orquestra PostgreSQL 16, Backend (FastAPI) e Frontend (Next.js 14)
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: triagem-db
+    environment:
+      POSTGRES_USER: triagem_user
+      POSTGRES_PASSWORD: triagem_pass
+      POSTGRES_DB: triagem_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U triagem_user -d triagem_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: triagem-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DATABASE_URL=postgresql://triagem_user:triagem_pass@db:5432/triagem_db
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://backend:8000
+    container_name: triagem-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  pgdata:

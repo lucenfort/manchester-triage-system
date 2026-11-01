@@ -1,0 +1,26 @@
+{
+  "name": "manchester-triage-frontend",
+  "version": "1.0.0",
+  "description": "Interface web do Sistema de Triagem Clínica — Protocolo de Manchester",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest"
+  },
+  "dependencies": {
+    "next": "14.2.21",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.21",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1"
+  }
+}
