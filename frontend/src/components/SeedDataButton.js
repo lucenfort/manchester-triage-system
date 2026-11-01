@@ -117,6 +117,7 @@ export default function SeedDataButton({ quantidade = 30, onSuccess }) {
         />
 
         <select
+          className="form-select"
           value={perfil}
           onChange={(e) => setPerfil(e.target.value)}
           id="seed-perfil"
