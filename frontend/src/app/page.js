@@ -97,7 +97,9 @@ export default function DashboardPage() {
 
       <div className="stats-grid">
         <div className="stat-card" id="stat-total">
-          <div className="stat-icon total">📊</div>
+          <div className="stat-icon total">
+            <span className="stat-dot" style={{ background: 'var(--accent-primary)' }} />
+          </div>
           <div className="stat-info">
             <h3>{stats.total_aguardando}</h3>
             <p>Aguardando</p>
@@ -105,7 +107,9 @@ export default function DashboardPage() {
         </div>
 
         <div className="stat-card" id="stat-vermelho">
-          <div className="stat-icon vermelho">🔴</div>
+          <div className="stat-icon vermelho">
+            <span className="stat-dot" style={{ background: 'var(--manchester-vermelho)' }} />
+          </div>
           <div className="stat-info">
             <h3 style={{ color: 'var(--manchester-vermelho)' }}>{stats.vermelho}</h3>
             <p>Emergência</p>
@@ -113,7 +117,9 @@ export default function DashboardPage() {
         </div>
 
         <div className="stat-card" id="stat-laranja">
-          <div className="stat-icon laranja">🟠</div>
+          <div className="stat-icon laranja">
+            <span className="stat-dot" style={{ background: 'var(--manchester-laranja)' }} />
+          </div>
           <div className="stat-info">
             <h3 style={{ color: 'var(--manchester-laranja)' }}>{stats.laranja}</h3>
             <p>Muito Urgente</p>
@@ -121,7 +127,9 @@ export default function DashboardPage() {
         </div>
 
         <div className="stat-card" id="stat-amarelo">
-          <div className="stat-icon amarelo">🟡</div>
+          <div className="stat-icon amarelo">
+            <span className="stat-dot" style={{ background: 'var(--manchester-amarelo)' }} />
+          </div>
           <div className="stat-info">
             <h3 style={{ color: 'var(--manchester-amarelo)' }}>{stats.amarelo}</h3>
             <p>Urgente</p>
@@ -129,7 +137,9 @@ export default function DashboardPage() {
         </div>
 
         <div className="stat-card" id="stat-verde">
-          <div className="stat-icon verde">🟢</div>
+          <div className="stat-icon verde">
+            <span className="stat-dot" style={{ background: 'var(--manchester-verde)' }} />
+          </div>
           <div className="stat-info">
             <h3 style={{ color: 'var(--manchester-verde)' }}>{stats.verde}</h3>
             <p>Pouco Urgente</p>
@@ -137,7 +147,9 @@ export default function DashboardPage() {
         </div>
 
         <div className="stat-card" id="stat-azul">
-          <div className="stat-icon azul">🔵</div>
+          <div className="stat-icon azul">
+            <span className="stat-dot" style={{ background: 'var(--manchester-azul)' }} />
+          </div>
           <div className="stat-info">
             <h3 style={{ color: 'var(--manchester-azul)' }}>{stats.azul}</h3>
             <p>Não Urgente</p>
@@ -147,7 +159,7 @@ export default function DashboardPage() {
 
       <div className="dashboard-chart-section" id="dashboard-chart-section">
         <div className="chart-card">
-          <h2>📊 Distribuição da Fila de Espera</h2>
+          <h2>Distribuição da Fila de Espera</h2>
           <p className="chart-subtitle">Proporção de pacientes aguardando por classificação de risco</p>
           <div className="chart-content">
             <div className="donut-chart-wrapper">
@@ -214,7 +226,7 @@ export default function DashboardPage() {
 
       <div className="dashboard-grid">
         <Link href="/triagem" className="dashboard-card" id="card-triagem">
-          <h2>🩺 Nova Triagem</h2>
+          <h2>Nova Triagem</h2>
           <p>
             Cadastrar paciente e realizar a classificação de risco pelo
             Protocolo de Manchester. Acesso exclusivo do enfermeiro triador.
@@ -222,7 +234,7 @@ export default function DashboardPage() {
         </Link>
 
         <Link href="/painel" className="dashboard-card" id="card-painel">
-          <h2>📋 Painel da Recepção</h2>
+          <h2>Painel da Recepção</h2>
           <p>
             Visualizar a fila de espera ordenada por prioridade.
             Atualização automática a cada 10 segundos.

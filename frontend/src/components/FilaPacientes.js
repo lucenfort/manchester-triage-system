@@ -9,11 +9,11 @@ import CardPaciente from './CardPaciente';
 
 const FILTROS = [
   { key: 'todos', label: 'Todos' },
-  { key: 'vermelho', label: '🔴 Vermelho' },
-  { key: 'laranja', label: '🟠 Laranja' },
-  { key: 'amarelo', label: '🟡 Amarelo' },
-  { key: 'verde', label: '🟢 Verde' },
-  { key: 'azul', label: '🔵 Azul' },
+  { key: 'vermelho', label: 'Vermelho' },
+  { key: 'laranja', label: 'Laranja' },
+  { key: 'amarelo', label: 'Amarelo' },
+  { key: 'verde', label: 'Verde' },
+  { key: 'azul', label: 'Azul' },
 ];
 
 export default function FilaPacientes({ triagens, onChamar }) {
@@ -47,7 +47,6 @@ export default function FilaPacientes({ triagens, onChamar }) {
       <div className="fila-list">
         {triagensFiltradas.length === 0 ? (
           <div className="fila-empty" id="fila-vazia">
-            <div className="fila-empty-icon">✅</div>
             <p>
               {filtro === 'todos'
                 ? 'Nenhum paciente aguardando atendimento.'

@@ -73,11 +73,11 @@ export default function TriagemPage() {
   }
 
   const CORES_INFO = {
-    vermelho: { label: 'EMERGÊNCIA', tempo: 'Imediato', emoji: '🔴' },
-    laranja: { label: 'MUITO URGENTE', tempo: '10 min', emoji: '🟠' },
-    amarelo: { label: 'URGENTE', tempo: '60 min', emoji: '🟡' },
-    verde: { label: 'POUCO URGENTE', tempo: '120 min', emoji: '🟢' },
-    azul: { label: 'NÃO URGENTE', tempo: '240 min', emoji: '🔵' },
+    vermelho: { label: 'EMERGÊNCIA', tempo: 'Imediato' },
+    laranja: { label: 'MUITO URGENTE', tempo: '10 min' },
+    amarelo: { label: 'URGENTE', tempo: '60 min' },
+    verde: { label: 'POUCO URGENTE', tempo: '120 min' },
+    azul: { label: 'NÃO URGENTE', tempo: '240 min' },
   };
 
   return (
@@ -89,7 +89,6 @@ export default function TriagemPage() {
 
       {mensagem && (
         <div className={`alert alert-${mensagem.tipo}`} id="triagem-mensagem">
-          <span>{mensagem.tipo === 'success' ? '✅' : '❌'}</span>
           <span>{mensagem.texto}</span>
         </div>
       )}
@@ -101,7 +100,6 @@ export default function TriagemPage() {
           id="resultado-triagem"
         >
           <h3 className={`classification-color ${ultimaTriagem.classificacao}`}>
-            {CORES_INFO[ultimaTriagem.classificacao]?.emoji}{' '}
             {CORES_INFO[ultimaTriagem.classificacao]?.label}
           </h3>
           <p>

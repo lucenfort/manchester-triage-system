@@ -105,7 +105,6 @@ export default function PainelPage() {
 
       {mensagem && (
         <div className={`alert alert-${mensagem.tipo}`} id="painel-mensagem">
-          <span>{mensagem.tipo === 'success' ? '✅' : mensagem.tipo === 'warning' ? '⚠️' : '❌'}</span>
           <span>{mensagem.texto}</span>
         </div>
       )}
@@ -124,7 +123,7 @@ export default function PainelPage() {
             title="Remove todos os pacientes da fila"
             id="btn-limpar-fila"
           >
-            🗑️ Limpar Fila
+            Limpar Fila
           </button>
         </div>
       </div>

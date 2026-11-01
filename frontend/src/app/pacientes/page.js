@@ -91,7 +91,6 @@ export default function PacientesPage() {
 
       {erro && (
         <div className="alert alert-error" id="pacientes-erro">
-          <span>❌</span>
           <span>{erro}</span>
         </div>
       )}
@@ -100,20 +99,19 @@ export default function PacientesPage() {
         <input
           type="text"
           className="form-input search-input"
-          placeholder="🔍 Buscar por nome ou CPF..."
+          placeholder="Buscar por nome ou CPF..."
           value={busca}
           onChange={(e) => setBusca(e.target.value)}
           id="busca-paciente"
         />
         <Link href="/triagem" className="btn btn-primary" id="btn-novo-cadastro">
-          ➕ Novo Cadastro
+          Novo Cadastro
         </Link>
       </div>
 
       <div className="glass-card table-responsive" style={{ padding: 0, overflow: 'hidden' }}>
         {pacientesFiltrados.length === 0 ? (
           <div className="fila-empty" id="pacientes-vazio">
-            <div className="fila-empty-icon">👥</div>
             <p>Nenhum paciente cadastrado {busca ? 'encontrado para a busca' : 'no sistema ainda'}.</p>
           </div>
         ) : (
@@ -143,7 +141,7 @@ export default function PacientesPage() {
                       style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem' }}
                       id={`btn-triar-${paciente.id}`}
                     >
-                      🩺 Triar
+                      Triar
                     </Link>
                     <button
                       onClick={() => handleExcluir(paciente.id, paciente.nome)}
@@ -151,7 +149,7 @@ export default function PacientesPage() {
                       style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem' }}
                       id={`btn-excluir-${paciente.id}`}
                     >
-                      🗑️ Excluir
+                      Excluir
                     </button>
                   </td>
                 </tr>

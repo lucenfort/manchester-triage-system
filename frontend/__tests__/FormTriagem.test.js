@@ -26,11 +26,11 @@ describe('FormTriagem integration', () => {
     expect(submitBtn).toBeDisabled();
 
     fireEvent.change(cpfInput, { target: { value: '111.111.111-11' } });
-    expect(screen.getByText('❌ CPF Inválido')).toBeInTheDocument();
+    expect(screen.getByText('CPF Inválido')).toBeInTheDocument();
     expect(submitBtn).toBeDisabled();
 
     fireEvent.change(cpfInput, { target: { value: '529.982.247-25' } });
-    expect(screen.getByText('✓ CPF Válido')).toBeInTheDocument();
+    expect(screen.getByText('CPF Válido')).toBeInTheDocument();
     expect(submitBtn).not.toBeDisabled();
   });
 });

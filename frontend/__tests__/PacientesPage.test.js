@@ -49,7 +49,7 @@ describe('PacientesPage', () => {
     expect(screen.getByText('111.222.333-44')).toBeInTheDocument();
     expect(screen.getByText('555.666.777-88')).toBeInTheDocument();
 
-    const buscaInput = screen.getByPlaceholderText('🔍 Buscar por nome ou CPF...');
+    const buscaInput = screen.getByPlaceholderText('Buscar por nome ou CPF...');
     fireEvent.change(buscaInput, { target: { value: 'Maria' } });
 
     expect(screen.getByText('Maria Antônia')).toBeInTheDocument();

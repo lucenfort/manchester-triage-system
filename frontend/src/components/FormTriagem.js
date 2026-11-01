@@ -176,7 +176,6 @@ export default function FormTriagem({ onSubmit, carregando }) {
     setForm(VALORES_INICIAIS);
   }
 
-  // Cor alinhada aos limiares do Protocolo de Manchester
   function corDor(valor) {
     if (valor === 0) return 'var(--manchester-azul)';
     if (valor <= 3) return 'var(--manchester-verde)';
@@ -188,7 +187,7 @@ export default function FormTriagem({ onSubmit, carregando }) {
     <form onSubmit={handleSubmit} className="form-container" id="form-triagem">
       {/* === Dados do Paciente === */}
       <div className="form-section">
-        <h2 className="form-section-title">👤 Dados do Paciente</h2>
+        <h2 className="form-section-title">Dados do Paciente</h2>
         <div className="form-grid">
           <div className="form-group">
             <label className="form-label" htmlFor="nome">Nome Completo *</label>
@@ -215,7 +214,7 @@ export default function FormTriagem({ onSubmit, carregando }) {
                   color: cpfValido ? 'var(--manchester-verde, #2e7d32)' : 'var(--manchester-vermelho, #d32f2f)',
                 }}
               >
-                {cpfValido ? '✓ CPF Válido' : '❌ CPF Inválido'}
+                {cpfValido ? 'CPF Válido' : 'CPF Inválido'}
               </span>
             )}
           </div>
@@ -232,7 +231,7 @@ export default function FormTriagem({ onSubmit, carregando }) {
 
       {/* === Queixa Principal === */}
       <div className="form-section">
-        <h2 className="form-section-title">💬 Queixa Principal</h2>
+        <h2 className="form-section-title">Queixa Principal</h2>
         <div className="form-group full-width">
           <label className="form-label" htmlFor="queixa_principal">Descreva a queixa *</label>
           <textarea
@@ -245,7 +244,7 @@ export default function FormTriagem({ onSubmit, carregando }) {
 
       {/* === Escala de Dor === */}
       <div className="form-section">
-        <h2 className="form-section-title">😣 Escala de Dor</h2>
+        <h2 className="form-section-title">Escala de Dor</h2>
         <div className="pain-scale">
           <div className="pain-value" style={{ color: corDor(form.dor_escala) }}>
             {form.dor_escala}
@@ -267,7 +266,7 @@ export default function FormTriagem({ onSubmit, carregando }) {
 
       {/* === Sinais Vitais === */}
       <div className="form-section">
-        <h2 className="form-section-title">🫀 Sinais Vitais</h2>
+        <h2 className="form-section-title">Sinais Vitais</h2>
         <div className="form-grid">
           <div className="form-group">
             <label className="form-label" htmlFor="temperatura">Temperatura (°C)</label>
@@ -314,7 +313,7 @@ export default function FormTriagem({ onSubmit, carregando }) {
 
       {/* === Discriminadores Clínicos === */}
       <div className="form-section">
-        <h2 className="form-section-title">⚕️ Discriminadores Clínicos</h2>
+        <h2 className="form-section-title">Discriminadores Clínicos</h2>
         <div className="form-grid">
           <div className="form-group">
             <label className="form-label" htmlFor="nivel_consciencia">Nível de Consciência</label>
@@ -356,7 +355,7 @@ export default function FormTriagem({ onSubmit, carregando }) {
 
       {/* === Observações === */}
       <div className="form-section">
-        <h2 className="form-section-title">📝 Observações</h2>
+        <h2 className="form-section-title">Observações</h2>
         <div className="form-group full-width">
           <textarea
             className="form-textarea" id="observacoes" name="observacoes"
@@ -368,7 +367,7 @@ export default function FormTriagem({ onSubmit, carregando }) {
 
       {/* === Preview de Classificação === */}
       <div className="form-section">
-        <h2 className="form-section-title">🏷️ Classificação Estimada</h2>
+        <h2 className="form-section-title">Classificação Estimada</h2>
         <div className={`classification-preview ${preview.cor}`} id="preview-classificacao">
           <h3 className={`classification-color ${preview.cor}`}>
             {preview.label}
@@ -383,7 +382,7 @@ export default function FormTriagem({ onSubmit, carregando }) {
           type="submit" className="btn btn-primary btn-full"
           disabled={!cpfValido || carregando} id="btn-registrar-triagem"
         >
-          {carregando ? '⏳ Registrando...' : '✅ Registrar Triagem'}
+          {carregando ? 'Registrando...' : 'Registrar Triagem'}
         </button>
         <button
           type="button" className="btn btn-outline"

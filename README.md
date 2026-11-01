@@ -9,38 +9,38 @@
   <img src="https://img.shields.io/badge/Docker-Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
 </p>
 
-# 🏥 Sistema de Triagem Clínica — Protocolo de Manchester
+# Sistema de Triagem Clínica — Protocolo de Manchester
 
 Aplicação Full Stack para acolhimento hospitalar, classificação automática de risco clínico pelo **Protocolo de Manchester** e gestão da fila de atendimento de emergência em tempo real.
 
 ---
 
-## ✨ Principais Funcionalidades
+## Principais Funcionalidades
 
 - **Classificação Automática (Protocolo de Manchester):** Motor clínico determinístico que avalia sinais vitais e discriminadores para atribuir prioridade e SLA de atendimento (**Vermelho**, **Laranja**, **Amarelo**, **Verde** e **Azul**).
 - **Fila Inteligente em Tempo Real:** Ordenação automática por gravidade clínica e tempo de chegada, com indicadores visuais de **SLA Excedido** quando o tempo de espera ultrapassa o limite da classificação.
 - **Dashboard Analítico:** Indicadores em tempo real e gráfico Donut interativo renderizado em SVG nativo com proporções da fila de espera.
-- **Conformidade LGPD & Validação de Dados:**
+- **Conformidade LGPD e Validação de Dados:**
   - Validação matemática de dígitos verificadores de CPF em tempo real (frontend e backend).
   - *Soft Delete* (inativação lógica) de pacientes com reativação automática mediante novo atendimento.
-  - Prevenção de vazamento de dados sensíveis em conflitos de CPF.
+  - Prevenção de exposição de dados sensíveis em conflitos de CPF.
 - **Simulador de Carga (Seed):** Geração instantânea de lotes de pacientes e triagens com CPFs matematicamente válidos e diferentes perfis clínicos (`aleatorio`, `urgente-heavy`, `estavel`, `idoso`, `crianca`).
 
 ---
 
-## 🎨 Protocolo de Manchester — Matriz de Risco
+## Protocolo de Manchester — Matriz de Risco
 
 | Cor | Classificação | Tempo Alvo (SLA) | Principais Discriminadores Clínicos |
-|:---:|:---|:---:|:---|
-| 🔴 **Vermelho** | Emergência | **0 min** (Imediato) | Inconsciente, convulsão ativa, FR < 10 ou > 35 irpm, PAS < 80 mmHg, FC < 40 ou > 150 bpm |
-| 🟠 **Laranja** | Muito Urgente | **10 min** | Dor ≥ 8, Temp ≥ 39.5 °C, sangramento importante, confuso/responde à dor, FC > 130 bpm, PAS < 90 mmHg |
-| 🟡 **Amarelo** | Urgente | **60 min** | Dor ≥ 4, Temp ≥ 38.0 °C, FC > 110 bpm, PAS > 180 ou PAD > 110 mmHg, responde à voz |
-| 🟢 **Verde** | Pouco Urgente | **120 min** | Dor ≥ 1, Temp ≥ 37.5 °C, FC > 100 bpm |
-| 🔵 **Azul** | Não Urgente | **240 min** | Sinais vitais estáveis e ausência de discriminadores de urgência |
+|:---|:---|:---:|:---|
+| **Vermelho** | Emergência | **0 min** (Imediato) | Inconsciente, convulsão ativa, FR < 10 ou > 35 irpm, PAS < 80 mmHg, FC < 40 ou > 150 bpm |
+| **Laranja** | Muito Urgente | **10 min** | Dor ≥ 8, Temp ≥ 39.5 °C, sangramento importante, confuso/responde à dor, FC > 130 bpm, PAS < 90 mmHg |
+| **Amarelo** | Urgente | **60 min** | Dor ≥ 4, Temp ≥ 38.0 °C, FC > 110 bpm, PAS > 180 ou PAD > 110 mmHg, responde à voz |
+| **Verde** | Pouco Urgente | **120 min** | Dor ≥ 1, Temp ≥ 37.5 °C, FC > 100 bpm |
+| **Azul** | Não Urgente | **240 min** | Sinais vitais estáveis e ausência de discriminadores de urgência |
 
 ---
 
-## 🏗️ Arquitetura do Projeto
+## Arquitetura do Projeto
 
 ```text
 manchester-triage-system/
@@ -62,7 +62,7 @@ manchester-triage-system/
 
 ---
 
-## 🚀 Como Executar
+## Como Executar
 
 ### Opção 1: Execução Completa com Docker (Recomendado)
 
@@ -101,7 +101,7 @@ npm run dev
 
 ---
 
-## 🧪 Testes Automatizados
+## Testes Automatizados
 
 O projeto conta com cobertura de testes de unidade e integração no Backend e no Frontend:
 
@@ -115,7 +115,7 @@ cd frontend && npm test
 
 ---
 
-## 📡 Principais Endpoints da API
+## Principais Endpoints da API
 
 | Método | Endpoint | Descrição |
 |:---:|:---|:---|
@@ -129,10 +129,3 @@ cd frontend && npm test
 | `PATCH` | `/api/triagens/{id}/atender` | Registra a chamada do paciente para atendimento médico com *timestamp* |
 | `DELETE` | `/api/triagens/fila` | Limpa os registros da fila de triagem |
 | `POST` | `/api/seed` | Popula o banco com lote de pacientes e triagens simuladas |
-
----
-
-## 👨‍💻 Autor
-
-Desenvolvido por **Luciano Silva de Arruda**  
-🔗 [github.com/lucenfort](https://github.com/lucenfort) · 📧 [lucen4t@gmail.com](mailto:lucen4t@gmail.com)

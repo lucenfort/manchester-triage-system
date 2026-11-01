@@ -8,11 +8,11 @@
  */
 
 const CLASSIFICACAO_INFO = {
-  vermelho: { label: 'Emergência', emoji: '🔴', tempo: 'Imediato' },
-  laranja: { label: 'Muito Urgente', emoji: '🟠', tempo: '10 min' },
-  amarelo: { label: 'Urgente', emoji: '🟡', tempo: '60 min' },
-  verde: { label: 'Pouco Urgente', emoji: '🟢', tempo: '120 min' },
-  azul: { label: 'Não Urgente', emoji: '🔵', tempo: '240 min' },
+  vermelho: { label: 'Emergência', tempo: 'Imediato' },
+  laranja: { label: 'Muito Urgente', tempo: '10 min' },
+  amarelo: { label: 'Urgente', tempo: '60 min' },
+  verde: { label: 'Pouco Urgente', tempo: '120 min' },
+  azul: { label: 'Não Urgente', tempo: '240 min' },
 };
 
 const LIMITES_SLA = {
@@ -63,11 +63,11 @@ export default function CardPaciente({ triagem, onChamar }) {
           <p>{triagem.queixa_principal}</p>
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '0.4rem' }}>
             <span className={`paciente-card-badge ${triagem.classificacao}`}>
-              {info.emoji} {info.label}
+              {info.label}
             </span>
             {slaExcedido && (
               <span className="sla-badge" id={`sla-badge-${triagem.id}`}>
-                ⚠️ SLA Excedido
+                SLA Excedido
               </span>
             )}
           </div>

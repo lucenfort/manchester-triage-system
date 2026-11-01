@@ -235,6 +235,13 @@ a:hover { text-decoration: underline; }
 .stat-icon.azul { background: var(--manchester-azul-bg); }
 .stat-icon.total { background: rgba(124, 58, 237, 0.12); }
 
+.stat-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 .stat-info h3 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -818,7 +825,7 @@ a:hover { text-decoration: underline; }
   .page-header h1 { font-size: 1.5rem; }
   .navbar-inner { height: 56px; }
   .navbar-brand span { display: none; }
-  .navbar-link span { display: none; }
+  .navbar-link { padding: 0.4rem 0.65rem; font-size: 0.8rem; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .form-grid { grid-template-columns: 1fr; }
   .paciente-card-body { flex-direction: column; align-items: flex-start; }
